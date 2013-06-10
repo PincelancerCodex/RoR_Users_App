@@ -67,16 +67,6 @@ describe "User pages" do
     end
   end
 
-=begin
-  describe "profile page" do
-    let(:user) { FactoryGirl.create(:user) }
-    before { visit user_path(user) }
-
-    it { should have_selector('h1',    text: user.name) }
-    it { should have_selector('title', text: user.name) }
-  end
-=end
-
   describe "signup" do
 
     before { visit signup_path }
@@ -103,37 +93,8 @@ describe "User pages" do
         fill_in "Password",     with: "foobar"
         fill_in "Confirmation", with: "foobar"
       end
-
-=begin
-      describe "after saving the user" do
-        before { click_button submit }
-        let(:user) { User.find_by_email('user@example.com') }
-
-        it { should have_selector('title', text: user.name) }
-        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
-        it { should have_link('Sign out') }      
-      end
-
-
-      it "should create a user" do
-        expect { click_button submit }.to change(User, :count).by(1)
-        #it { should have_link('Sign out') }
-      end
-=end
     end
   end
-
-=begin
-  describe "edit" do
-    let(:user) { FactoryGirl.create(:user) }
-    before { visit edit_user_path(user) }
-
-    describe "page" do
-      it { should have_selector('h1',    text: "Update your profile") }
-      it { should have_selector('title', text: "Edit user") }
-      it { should have_link('change', href: 'http://gravatar.com/emails') }
-    end
-=end
 
     describe "edit" do
     let(:user) { FactoryGirl.create(:user) }
